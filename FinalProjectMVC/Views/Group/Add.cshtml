@@ -1,0 +1,32 @@
+﻿@model FinalProject.EFLayer.DataModels.Group
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @using (Html.BeginForm("Add", "Group", FormMethod.Post))
+    {
+        <p>Введите название курса</p>
+        <p>@Html.Label("Имя группы")</p>
+
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+
+        <p>@Html.Label("Название курса")</p>
+        <p>
+            @Html.TextBox("Course")
+        </p>
+
+        <input type="submit" value="Отправить" />
+    }
+    <br />
+    <br />
+    <p>@Html.ActionLink("Вернуться назад", "Index", "Group")</p>
+</body>
+</html>

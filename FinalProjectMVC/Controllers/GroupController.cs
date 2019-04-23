@@ -1,4 +1,5 @@
 ﻿using FinalProject.BusinessLogic.Services;
+using FinalProject.EFLayer.DataModels;
 using FinalProject.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,29 @@ namespace FinalProjectMVC.Controllers
             return View(groupViewModel); ;
         }
 
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Add(Group group, string Course)
+        {
+                   
+
+            //if (ModelState.IsValid)
+            //{
+                groupService.Add(group, Course);
+                return View();
+            //}
+            //return View(group);
+        }
+
+
+        public Action Delete()
+        {
+            return View();
+        }
     }
 }

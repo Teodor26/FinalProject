@@ -36,11 +36,22 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
-        public void AddGroup(Group group)
+        public void AddGroup(Group group, string Course)
         {
             using (var context = new FinalProjectDBEntities1())
             {
-                List<Group> query = context.Groups
+
+                List<int> list = (context.Courses.Join(context.Groups,
+                    cor => cor.Name,
+                    grop => Course,
+                    (cor, grop) =>  cor.Id )).Distinct().ToList();
+
+                group.BeginigDate = DateTime.Now;
+                group.CourseId = list[0];
+
+
+
+                List < Group > query = context.Groups
                     .Where(x => x.Name == group.Name &&
                 (x.IsDeleted == false || x.IsDeleted == null))
                 .ToList();
@@ -50,6 +61,9 @@ namespace FinalProject.DataLayer.Repositories
                     context.Groups.Add(group);
                     context.SaveChanges();
                 }
+
+
+                
             }
             
         }
