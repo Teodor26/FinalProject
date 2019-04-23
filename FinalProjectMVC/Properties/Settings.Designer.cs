@@ -22,5 +22,14 @@ namespace FinalProjectMVC.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"data source=DESKTOP-VJ812OB;initial catalog=FinalProjectDB;integrated security=True;persist security info=False;pooling=False; multipleactiveresultsets=False;connect timeout=60;encrypt=False;trustservercertificate=True;application name=EntityFramework&quot;""")]
+        public string ApiEndpoint {
+            get {
+                return ((string)(this["ApiEndpoint"]));
+            }
+        }
     }
 }

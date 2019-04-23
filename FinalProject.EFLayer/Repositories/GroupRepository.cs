@@ -52,7 +52,7 @@ namespace FinalProject.DataLayer.Repositories
                 {
                     group.CourseId = list[0];
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     group.CourseId = 1;
                 }
