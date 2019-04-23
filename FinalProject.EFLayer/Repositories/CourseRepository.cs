@@ -40,16 +40,17 @@ namespace FinalProject.DataLayer.Repositories
         {
             using (FinalProjectDBEntities1 context = new FinalProjectDBEntities1())
             {
-                
+                List<Course> query = context.Courses
+                    .Where(x => x.Name == course.Name &&
+                (x.IsDeleted == false || x.IsDeleted == null))
+                .ToList();
 
-                List<Course> query = context.Courses.Where(x => x.Name == course.Name && (x.IsDeleted == false || x.IsDeleted == null)).ToList();
-
-                if (query.Count==0)
+                if (query.Count == 0)
                 {
                     context.Courses.Add(course);
                     context.SaveChanges();
                 }
-                else                                    
+                else
                     context.SaveChanges();
 
             }
