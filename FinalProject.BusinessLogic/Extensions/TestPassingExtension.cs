@@ -12,6 +12,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var testPassingDto = new TestPassingDto
             {
+                Id = testPassing.Id,
                 Date = testPassing.Date.Value
             };
 

@@ -14,6 +14,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var moduleDto = new ModuleDto
             {
+                Id = module.Id,
                 QuantityLessons = module.QuantityLessons.Value,
                 QuestionList = module.Questions.Select(x => x.ToQuestionDto()).ToList(),
                 ThemeList = module.Themes.Select(x => x.ToThemeDto()).ToList()

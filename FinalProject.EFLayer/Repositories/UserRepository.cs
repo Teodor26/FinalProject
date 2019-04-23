@@ -27,10 +27,24 @@ namespace FinalProject.DataLayer.Repositories
             // }
         }
 
-        public void AddUser(User user)
+        public void AddUser(User user, string role)
         {
             using (var context = new FinalProjectDBEntities1())
             {
+                List<int> list = (context.UserTypes.Join(context.Users,
+                   us => us.Name,
+                   type => role,
+                   (us, type) => us.Id)).Distinct().ToList();
+
+                try
+                {
+                    user.UserTypeId = list[0];
+                }
+                catch
+                {
+                    user.UserTypeId = 1;
+                }
+
                 context.Users.Add(user);                             
                 context.SaveChanges();
             }

@@ -21,7 +21,7 @@ namespace FinalProject.Controllers
         public IHttpActionResult GetAll()
         {
             var courses = courseService.GetCourseList();
-            return Ok();
+            return Ok(courses);
         }
 
         [HttpPost]

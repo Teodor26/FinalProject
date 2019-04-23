@@ -26,9 +26,9 @@ namespace FinalProject.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Add([FromBody] Group group)
+        public IHttpActionResult Add([FromBody] Group group, string Course)
         {
-            groupService.Add(group);
+            groupService.Add(group, Course);
             return Ok();
         }
 

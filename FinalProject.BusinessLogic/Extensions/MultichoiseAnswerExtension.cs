@@ -12,6 +12,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var multichoiceDto = new MultichoiceAnswerDto
             {
+                Id = multichoice.Id,
                 AnswerText = multichoice.AnswerText,
                 IsCorrect = multichoice.IsCorrect.Value,
             };

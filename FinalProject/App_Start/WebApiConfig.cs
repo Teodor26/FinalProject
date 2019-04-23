@@ -21,6 +21,16 @@ namespace FinalProject.Api
             // Web API configuration and services
 
             // Web API routes
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes
+                .Add(new MediaTypeHeaderValue("text/html"));
+
+            var formatters = GlobalConfiguration.Configuration.Formatters;
+            var jsonFormatter = formatters.JsonFormatter;
+            var settings = jsonFormatter.SerializerSettings;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

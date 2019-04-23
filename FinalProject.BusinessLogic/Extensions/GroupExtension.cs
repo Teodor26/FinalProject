@@ -13,6 +13,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var groupDto = new GroupDto
             {
+                Id =group.Id,
                 Name = group.Name,
                 BeginingDate = group.BeginigDate.Value,
                 StudentsList = group.Students.Select(x => x.ToStudentDto()).ToList(),

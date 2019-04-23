@@ -10,7 +10,10 @@ namespace FinalProject.BusinessLogic.Extensions
             if (admin == null)
                 return null;
 
-            var adminDto = new AdminDto();
+            var adminDto = new AdminDto
+            {
+                Id = admin.Id               
+            };
 
             return adminDto;
         }

@@ -17,6 +17,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var textAnswerDto = new TextAnswerDto
             {
+                Id = textAnswer.Id,
                 Textbox = textAnswer.Textbox,
                 IsCorrect = textAnswer.IsCorrect.Value
             };

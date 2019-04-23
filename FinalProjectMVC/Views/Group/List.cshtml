@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FinalProject.Models.ViewModels.GroupViewModel>
+
+@{
+    ViewBag.Title = "List";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td>
+                <p>Имя</p>
+
+            </td>
+            <td><p>Действие</p></td>
+        </tr>
+
+        @{
+            foreach (var group in Model)
+            {
+                <tr>
+                    <td>@group.Name  </td>
+                    <td>@group.BeginingDate </td>
+                    <td>
+                        @Html.ActionLink("Удалить", "Delete", routeValues: new { id = group.Id })
+                    </td>
+
+                </tr>
+            }
+        }
+    </table>
+    <br />
+    <br />
+    <p>@Html.ActionLink("Вернуться назад", "Index", "Group")</p>
+
+    
+    </body>
+</html>
