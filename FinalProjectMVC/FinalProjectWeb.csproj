@@ -173,6 +173,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script-custom-validator.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -197,6 +198,7 @@
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Group\List.cshtml" />
     <Content Include="Views\Group\Add.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

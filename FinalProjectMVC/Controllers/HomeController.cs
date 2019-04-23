@@ -1,4 +1,5 @@
 ﻿using FinalProject.BusinessLogic.Services;
+using FinalProject.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,33 @@ namespace FinalProjectWeb.Controllers
 
     public class HomeController : Controller
     {
+        #region Register  
 
-        
-
-        public ActionResult Index()
-        {           
-            return View();
-        }
-
-        public ActionResult About()
+        //  
+        // GET: /Home/Register  
+        [AllowAnonymous]
+        public ActionResult Register()
         {
-            ViewBag.Message = "Your application description page.";
-            
             return View();
         }
 
-        public ActionResult Contact()
+        //  
+        // POST: /Home/Register  
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
         {
-            ViewBag.Message = "Your contact page.";
+            if (ModelState.IsValid)
+            {
+                // Info.  
+                Console.WriteLine(model.Email);
+            }
 
-            return View();
+            // If we got this far, something failed, redisplay form  
+            return View(model);
         }
+
+        #endregion
     }
 }
