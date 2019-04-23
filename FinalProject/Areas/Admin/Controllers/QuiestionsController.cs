@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace FinalProject.Controllers
 {
-    public class QuiestionController : ApiController
+    public class QuiestionsController : ApiController
     {
     }
 }

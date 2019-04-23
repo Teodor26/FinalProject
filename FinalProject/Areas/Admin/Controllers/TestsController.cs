@@ -4,11 +4,11 @@ using System.Web.Http;
 
 namespace FinalProject.Controllers
 {
-    public class TestController : ApiController
+    public class TestsController : ApiController
     {
         private readonly ITestService testService;
 
-        public TestController()
+        public TestsController()
         {
             testService = new TestService();
         }

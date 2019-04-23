@@ -9,11 +9,11 @@ using System.Web.Http;
 
 namespace FinalProject.Controllers
 {
-    public class CourseController : ApiController
+    public class CoursesController : ApiController
     {
         public ICourseService courseService;
 
-        public CourseController()
+        public CoursesController()
         {
             courseService = new CourseService();
         }
