@@ -14,18 +14,18 @@ namespace FinalProject.DataLayer.Repositories
         public List<Course> GetListOfCourses()
         {
             var context = new FinalProjectDBEntities1();
-           
+
             //using (var context = new FinalProjectDBEntities1())
             //{
-            
+
             coursesEF = context.Courses
                     .Include("Teachers")
                     .Include("Groups")
                     .Include("Modules")
                     .ToList();
-                ListInitialization();
-                return courseList;
-           // }
+            ListInitialization();
+            return courseList;
+            // }
         }
 
         public Course GetCourseById(int Id)
@@ -38,10 +38,20 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddCourse(Course course)
         {
-            using (var context = new FinalProjectDBEntities1())
+            using (FinalProjectDBEntities1 context = new FinalProjectDBEntities1())
             {
-                context.Courses.Add(course);
-                context.SaveChanges(); 
+                
+
+                List<Course> query = context.Courses.Where(x => x.Name == course.Name && (x.IsDeleted == false || x.IsDeleted == null)).ToList();
+
+                if (query.Count==0)
+                {
+                    context.Courses.Add(course);
+                    context.SaveChanges();
+                }
+                else                                    
+                    context.SaveChanges();
+
             }
         }
 
@@ -50,7 +60,7 @@ namespace FinalProject.DataLayer.Repositories
             using (var context = new FinalProjectDBEntities1())
             {
                 Course course = context.Courses.Find(Id);
-                course.IsDeleted = true;              
+                course.IsDeleted = true;
                 context.SaveChanges();
                 courseList.Remove(course);
             }
@@ -58,7 +68,7 @@ namespace FinalProject.DataLayer.Repositories
 
 
         private void ListInitialization()
-        {           
+        {
             foreach (var item in coursesEF)
             {
                 if (item.IsDeleted == true)
