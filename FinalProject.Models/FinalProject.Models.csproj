@@ -51,6 +51,7 @@
     <Compile Include="DataModels\Test.cs" />
     <Compile Include="DataModels\Theme.cs" />
     <Compile Include="DataModels\User.cs" />
+    <Compile Include="DataModels\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
