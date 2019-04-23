@@ -8,6 +8,8 @@ namespace FinalProject.BusinessLogic.Dto
 {
     public class QuestionTypeDto
     {
+        public int Id { get; set; }
+
         public string Type { get; set; }
 
         public List<QuestionDto> QuestionsList { get; set; }

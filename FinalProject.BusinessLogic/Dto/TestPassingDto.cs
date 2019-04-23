@@ -8,6 +8,7 @@ namespace FinalProject.BusinessLogic.Dto
 {
     public class TestPassingDto
     {
+        public int Id { get; set; }
         public DateTime Date { get; set; }
     }
 }

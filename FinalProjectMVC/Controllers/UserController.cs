@@ -39,10 +39,10 @@ namespace FinalProjectMVC.Controllers
         [HttpPost]
         public ActionResult Add(User user, string role)
         {
-            User newUser = new User();
+            
             //if (ModelState.IsValid)
             //{
-                userService.Add(user);
+                userService.Add(user, role);
                 return View();
             //}
             //else

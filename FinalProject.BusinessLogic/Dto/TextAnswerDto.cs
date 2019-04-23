@@ -8,6 +8,7 @@ namespace FinalProject.BusinessLogic.Dto
 {
     public class TextAnswerDto
     {
+        public int Id { get; set; }
         public string Textbox { get; set; }
 
         public int IsCorrect { get; set; }

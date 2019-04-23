@@ -16,7 +16,7 @@ namespace FinalProject.BusinessLogic.Services
         List<UserDto> GetUserList();
         UserDto GetById(int Id);
         void Delete(int? Id);
-        void Add(User user);
+        void Add(User user, string role);
 
     }
     public class UserService : IUserService
@@ -24,9 +24,9 @@ namespace FinalProject.BusinessLogic.Services
         private UserRepository userRepository
             = new UserRepository();
 
-        public void Add(User user)
+        public void Add(User user, string role)
         {
-            userRepository.AddUser(user);
+            userRepository.AddUser(user, role);
         }
 
         public void Delete(int? Id)

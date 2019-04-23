@@ -13,6 +13,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var teacherDto = new TeacherDto
             {
+                Id = teacher.Id,
                 TestPassingList = teacher.TestPassings.Select(x => x.ToTestPassingDto()).ToList(),
                 CoursesList = teacher.Courses.Select(x => x.ToCourseDto()).ToList(),
                 GroupsList = teacher.Groups.Select(x => x.ToGroupDto()).ToList()

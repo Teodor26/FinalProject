@@ -13,6 +13,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var questionTypeDto = new QuestionTypeDto
             {
+                Id = questionType.Id,
                 Type = questionType.Type,
                 QuestionsList = questionType.Questions.Select(x => x.ToQuestionDto()).ToList()
             };

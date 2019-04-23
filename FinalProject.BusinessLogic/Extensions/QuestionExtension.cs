@@ -13,6 +13,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var questionDto = new QuestionDto
             {
+                Id = question.Id,
                 Text = question.Text,
                 TextAnswersList = question.TextAnswers
                                                      .Select(x => x.ToTextAnswerDto())

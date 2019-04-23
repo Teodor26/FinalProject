@@ -14,6 +14,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var themeDto = new ThemeDto
             {
+                Id = theme.Id,
                 Name = theme.Name,
                 QuestionList = theme.Questions.Select(x => x.ToQuestionDto()).ToList()
             };
