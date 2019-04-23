@@ -37,7 +37,7 @@ namespace FinalProject.DataLayer.Repositories
                    (us, type) => us.Id)).Distinct().ToList();
 
 
-                user.UserType.Name = role;
+                user.IsDeleted = false;
                 try
                 {
                     user.UserTypeId = list[0];
