@@ -1,4 +1,5 @@
 ﻿using FinalProject.BusinessLogic.Services;
+using FinalProject.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,18 @@ namespace FinalProjectMVC.Controllers
         private readonly IGroupService groupService 
             = new GroupService();
         
-
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult List()
         {
-            var groupList = groupService.GetGroupList();
+            var course = groupService.GetGroupList();
+            var groupViewModel = course.Select(x => new GroupViewModel(x));
 
-            return View(groupList);
+            return View(groupViewModel); ;
         }
+
+
     }
 }
