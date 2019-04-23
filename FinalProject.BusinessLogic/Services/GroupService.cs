@@ -19,7 +19,7 @@ namespace FinalProject.BusinessLogic.Services
 
         void Add(Group group, string Course);
 
-        void Delete(int Id);
+        void Delete(int? Id);
     }
     public class GroupService : IGroupService
     {
@@ -31,7 +31,7 @@ namespace FinalProject.BusinessLogic.Services
             groupRepository.AddGroup(group, Course);
         }
 
-        public void Delete(int Id)
+        public void Delete(int? Id)
         {
             groupRepository.DeleteGroup(Id);
         }

@@ -47,11 +47,17 @@ namespace FinalProject.DataLayer.Repositories
                     (cor, grop) =>  cor.Id )).Distinct().ToList();
 
                 group.BeginigDate = DateTime.Now;
-                group.CourseId = list[0];
 
+                try
+                {
+                    group.CourseId = list[0];
+                }
+                catch(Exception e)
+                {
+                    group.CourseId = 1;
+                }
 
-
-                List < Group > query = context.Groups
+                List <Group> query = context.Groups
                     .Where(x => x.Name == group.Name &&
                 (x.IsDeleted == false || x.IsDeleted == null))
                 .ToList();
@@ -61,13 +67,10 @@ namespace FinalProject.DataLayer.Repositories
                     context.Groups.Add(group);
                     context.SaveChanges();
                 }
-
-
-                
             }
-            
         }
-        public void DeleteGroup(int Id)
+
+        public void DeleteGroup(int? Id)
         {
             using (var context = new FinalProjectDBEntities1())
             {

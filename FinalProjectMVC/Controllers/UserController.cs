@@ -25,7 +25,6 @@ namespace FinalProjectMVC.Controllers
         {
             var users = userService.GetUserList();
             var userViewModel = users.Select(x => new UserViewModel(x));
-
             return View(userViewModel);
         }
 
@@ -41,13 +40,13 @@ namespace FinalProjectMVC.Controllers
         public ActionResult Add(User user, string role)
         {
             User newUser = new User();
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 userService.Add(user);
                 return View();
-            }
-            else
-                return View(user);
+            //}
+            //else
+                //return View(user);
         }
 
 

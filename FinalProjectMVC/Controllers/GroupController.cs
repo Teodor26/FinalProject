@@ -34,8 +34,7 @@ namespace FinalProjectMVC.Controllers
 
         [HttpPost]
         public ActionResult Add(Group group, string Course)
-        {
-                   
+        {                   
 
             //if (ModelState.IsValid)
             //{
@@ -45,10 +44,14 @@ namespace FinalProjectMVC.Controllers
             //return View(group);
         }
 
-
-        public Action Delete()
+        public ActionResult Delete(int? Id)
         {
-            return View();
+            if (Id == null)
+            {
+                return View("Index");
+            }
+            groupService.Delete(Id);
+            return View("Index");
         }
     }
 }
