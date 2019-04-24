@@ -1,11 +1,9 @@
 ﻿using FinalProject.BusinessLogic.Services;
 using FinalProject.EFLayer.DataModels;
 using FinalProject.Models.ViewModels;
-using System;
-using System.Collections.Generic;
+using FinalProjectMVC.Services;
 using System.Linq;
-using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace FinalProjectMVC.Controllers
@@ -14,17 +12,21 @@ namespace FinalProjectMVC.Controllers
     {
         private readonly ICourseService _courseSrvice
             = new CourseService();
+
+        private readonly ICourseApiService courseService =
+            new CourseApiService();
+
         // GET: Course
         public ActionResult Index()
         {
             return View();
         }
         [HttpGet]
-        public ActionResult List()
+        public async Task<ActionResult> List()
         {
-            var course = _courseSrvice.GetCourseList();
-            var courseViewModel = course.Select(x => new CourseViewModel(x));
-
+            //var course = _courseSrvice.GetCourseList();
+            var courses = await courseService.Getlist();
+            var courseViewModel = courses.Select(x => new CourseViewModel(x));
             return View(courseViewModel);
         }
 

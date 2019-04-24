@@ -1,23 +1,24 @@
 ﻿@model IEnumerable<FinalProject.Models.ViewModels.CourseViewModel>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Список направлений";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link href="~/Content/external.css" rel="stylesheet">
     <title></title>
 </head>
 <body>
 
-    <table>
+    <table class="table_blur">
         <tr>
             <td>
                 <p>Имя</p>
-                
+
             </td>
             <td><p>Действие</p></td>
         </tr>

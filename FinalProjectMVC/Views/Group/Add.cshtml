@@ -20,7 +20,8 @@
 
         <p>@Html.Label("Название курса")</p>
         <p>
-            @Html.TextBox("Course")
+            @Html.DropDownList("Course", new SelectList(new[] { "Net", "Java", "JavaScript", "Angular", "Html, CSS",
+           "Основы программирования","React" }))
         </p>
 
         <input type="submit" value="Отправить" />
