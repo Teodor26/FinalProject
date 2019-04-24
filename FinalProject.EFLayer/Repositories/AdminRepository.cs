@@ -22,7 +22,7 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
-        public void DeleteAdmin(int Id)
+        public void DeleteAdmin(int? Id)
         {
             using (var context = new FinalProjectDBEntities1())
             {

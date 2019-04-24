@@ -9,35 +9,33 @@ using System.Web.Http;
 
 namespace FinalProject.Controllers
 {
-    public class GroupsController : ApiController
+    public class AdminsController : ApiController
     {
-        private readonly IGroupService _groupService;
+        private readonly IAdminService _adminService;
 
-        public GroupsController()
+        public AdminsController()
         {
-            _groupService = new GroupService();
+            _adminService = new AdminService();
         }
-
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = _groupService.GetGroupList();
-            return Ok(courses);
+            var admin = _adminService.GetAdminList();
+            return Ok(admin);
         }
 
         [HttpPost]
-        public IHttpActionResult Add([FromBody] Group group, string Course)
+        public IHttpActionResult Add([FromBody] Admin admin)
         {
-            _groupService.Add(group, Course);
+            _adminService.Add(admin);
             return Ok();
         }
 
         [HttpDelete]
         public IHttpActionResult Delelte(int Id)
         {
-            _groupService.Delete(Id);
+            _adminService.Delete(Id);
             return Ok();
         }
-
     }
 }

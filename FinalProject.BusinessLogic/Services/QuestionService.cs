@@ -17,7 +17,7 @@ namespace FinalProject.BusinessLogic.Services
 
         QuestionDto GetQuestionById(int Id);
     }
-    internal class QuestionSerice : IQuestionService
+    public class QuestionService : IQuestionService
     {
         private readonly QuestionRepository questionRepository = new QuestionRepository();
         public void Add(Question question)

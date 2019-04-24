@@ -9,35 +9,33 @@ using System.Web.Http;
 
 namespace FinalProject.Controllers
 {
-    public class GroupsController : ApiController
+    public class ThemesController : ApiController
     {
-        private readonly IGroupService _groupService;
+        private readonly IThemeService _themeService;
 
-        public GroupsController()
+        public ThemesController()
         {
-            _groupService = new GroupService();
+            _themeService = new ThemeService();
         }
-
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = _groupService.GetGroupList();
+            var courses = _themeService.GetThemeList();
             return Ok(courses);
         }
 
         [HttpPost]
-        public IHttpActionResult Add([FromBody] Group group, string Course)
+        public IHttpActionResult Add([FromBody] Theme theme)
         {
-            _groupService.Add(group, Course);
+            _themeService.Add(theme);
             return Ok();
         }
 
         [HttpDelete]
         public IHttpActionResult Delelte(int Id)
         {
-            _groupService.Delete(Id);
+            _themeService.Delete(Id);
             return Ok();
         }
-
     }
 }

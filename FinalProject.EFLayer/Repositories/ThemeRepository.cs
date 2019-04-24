@@ -22,7 +22,7 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
-        public void DeleteTheme(int Id)
+        public void DeleteTheme(int? Id)
         {
             using (var context = new FinalProjectDBEntities1())
             {

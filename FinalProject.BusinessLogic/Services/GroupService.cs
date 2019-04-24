@@ -17,7 +17,7 @@ namespace FinalProject.BusinessLogic.Services
 
         GroupDto GetGroupById(int Id);
 
-        void Add(Group group, string Course);
+        void Add(Group group, string course);
 
         void Delete(int? Id);
     }
@@ -26,9 +26,9 @@ namespace FinalProject.BusinessLogic.Services
         private readonly GroupRepository groupRepository 
             = new GroupRepository();
 
-        public void Add(Group group, string Course)
+        public void Add(Group group, string course)
         {
-            groupRepository.AddGroup(group, Course);
+            groupRepository.AddGroup(group, course);
         }
 
         public void Delete(int? Id)

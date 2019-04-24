@@ -42,15 +42,14 @@ namespace FinalProject.DataLayer.Repositories
             {
                 List<Course> query = context.Courses
                     .Where(x => x.Name == course.Name &&
-                (x.IsDeleted == false || x.IsDeleted == null))                
+                (x.IsDeleted == false || x.IsDeleted == null))
                 .ToList();
 
                 if (query.Count == 0)
                 {
                     context.Courses.Add(course);
                     context.SaveChanges();
-                }              
-                    
+                }
 
             }
         }

@@ -3,22 +3,49 @@ using FinalProject.DataLayer.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using FinalProject.BusinessLogic.Extensions;
+using FinalProject.EFLayer.DataModels;
 
 namespace FinalProject.BusinessLogic.Services
 {
     public interface IThemeService
     {
         List<ThemeDto> GetThemeList();
+
+        ThemeDto GetThemeById(int Id);
+
+        void Add(Theme theme);
+
+        void Delete(int? Id);
     }
-    internal class ThemeService : IThemeService
+    public class ThemeService : IThemeService
     {
+        private readonly ThemeRepository _themeRepository
+            = new ThemeRepository();
+
         public List<ThemeDto> GetThemeList()
         {
-            var themeRepository = new ThemeRepository();
-
-            var themeList = themeRepository.GetListOfTheme();
+            var themeList = _themeRepository.GetListOfTheme();
 
             return themeList.Select(x => x.ToThemeDto()).ToList();
         }
+
+        public void Add(Theme theme)
+        {
+            _themeRepository.AddTheme(theme);
+        }
+
+        public void Delete(int? Id)
+        {
+            _themeRepository.DeleteTheme(Id);
+        }
+
+        public ThemeDto GetThemeById(int Id)
+        {
+            var theme = _themeRepository.GetThemeById(Id);
+
+            return theme.ToThemeDto();
+        }
+
+
     }
 }

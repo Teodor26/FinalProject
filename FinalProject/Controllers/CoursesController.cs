@@ -11,30 +11,30 @@ namespace FinalProject.Controllers
 {
     public class CoursesController : ApiController
     {
-        public ICourseService courseService;
+        private readonly ICourseService _courseService;
 
         public CoursesController()
         {
-            courseService = new CourseService();
+            _courseService = new CourseService();
         }
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = courseService.GetCourseList();
+            var courses = _courseService.GetCourseList();
             return Ok(courses);
         }
 
         [HttpPost]
         public IHttpActionResult Add([FromBody] Course course)
         {
-            courseService.Add(course);
+            _courseService.Add(course);
             return Ok();
         }
 
         [HttpDelete]
         public IHttpActionResult Delelte(int Id)
         {
-            courseService.Delete(Id);
+            _courseService.Delete(Id);
             return Ok();
         }
     }

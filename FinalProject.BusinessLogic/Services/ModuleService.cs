@@ -12,7 +12,7 @@ namespace FinalProject.BusinessLogic.Services
 
 
     }
-    internal class ModuleService : IModuleService
+    public class ModuleService : IModuleService
     {
         public List<ModuleDto> moduleList()
         {
