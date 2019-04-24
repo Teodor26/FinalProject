@@ -81,6 +81,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateGroup(Group group)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(group).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
         private void ListInitialization()
         {
             foreach (var item in groupEF)

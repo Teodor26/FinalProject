@@ -16,6 +16,8 @@ namespace FinalProject.BusinessLogic.Services
 
         void Add(Teacher teacher);
 
+        void Update(Teacher teacher);
+
         void Delete(int Id);
     }
     public class TeacherService : ITeacherService
@@ -39,6 +41,11 @@ namespace FinalProject.BusinessLogic.Services
             var teacher = teacherReposotiry.GetTeacheryId(Id);
 
             return teacher.ToTeacherDto();
+        }
+
+        public void Update(Teacher teacher)
+        {
+            teacherReposotiry.UpdateTeacher(teacher);
         }
 
         public List<TeacherDto> GetTeacherList()

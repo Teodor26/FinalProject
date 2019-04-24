@@ -18,6 +18,8 @@ namespace FinalProject.BusinessLogic.Services
 
         void Add(Student group);
 
+        void Update(Student group);
+
         void Delete(int Id);
     }
     public class StudentService : IStudentService
@@ -40,6 +42,11 @@ namespace FinalProject.BusinessLogic.Services
             var student = studentRepository.GetStudentById(Id);
 
             return student.ToStudentDto();
+        }
+
+        public void Update(Student group)
+        {
+            studentRepository.UpdateStudent(group);
         }
 
         public List<StudentDto> GetStudents()

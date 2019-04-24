@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace FinalProject
+namespace FinalProject.Api
 {
     public class FilterConfig
     {

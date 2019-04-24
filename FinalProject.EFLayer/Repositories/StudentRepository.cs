@@ -37,6 +37,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateStudent(Student student)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(student).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
         public Student GetStudentById(int Id)
         {
             using (var context = new FinalProjectDBEntities1())

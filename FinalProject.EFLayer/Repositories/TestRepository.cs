@@ -31,6 +31,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateTest(Test test)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(test).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
         public Test GetTestById(int Id)
         {
             using (var context = new FinalProjectDBEntities1())

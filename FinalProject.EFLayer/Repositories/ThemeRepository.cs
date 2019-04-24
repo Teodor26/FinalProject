@@ -22,12 +22,20 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
-        public void DeleteTheme(int Id)
+        public void DeleteTheme(int? Id)
         {
             using (var context = new FinalProjectDBEntities1())
             {
                 Theme theme = context.Themes.Find(Id);
                 context.Themes.Remove(theme);
+            }
+        }
+
+        public void UpdateTheme(Theme theme)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(theme).State = System.Data.Entity.EntityState.Modified;
             }
         }
 

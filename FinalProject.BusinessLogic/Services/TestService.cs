@@ -18,6 +18,8 @@ namespace FinalProject.BusinessLogic.Services
 
         void Delete(int Id);
 
+        void Update(Test test);
+
         void Add(Test test);
     }
     public class TestService : ITestService
@@ -41,6 +43,11 @@ namespace FinalProject.BusinessLogic.Services
             var test = testRepository.GetTestById(Id);
 
             return test.ToTestDto();
+        }
+
+        public void Update(Test test)
+        {
+            testRepository.UpdateTest(test);
         }
 
         public List<TestDto> GetTestList()

@@ -22,12 +22,20 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
-        public void DeleteAdmin(int Id)
+        public void DeleteAdmin(int? Id)
         {
             using (var context = new FinalProjectDBEntities1())
             {
                 Admin admin = context.Admins.Find(Id);
                 context.Admins.Remove(admin);
+            }
+        }
+
+        public void UpdateAdmin(Admin admin)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(admin).State = System.Data.Entity.EntityState.Modified;
             }
         }
 

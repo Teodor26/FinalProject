@@ -15,9 +15,11 @@ namespace FinalProject.BusinessLogic.Services
 
         void Delete(int Id);
 
+        void Update(Question question);
+
         QuestionDto GetQuestionById(int Id);
     }
-    internal class QuestionSerice : IQuestionService
+    public class QuestionService : IQuestionService
     {
         private readonly QuestionRepository questionRepository = new QuestionRepository();
         public void Add(Question question)
@@ -35,6 +37,11 @@ namespace FinalProject.BusinessLogic.Services
             var question = questionRepository.GetQuestionById(Id);
 
             return question.ToQuestionDto();
+        }
+
+        public void Update(Question question)
+        {
+            questionRepository.UpdateQuestion(question);
         }
 
         public List<QuestionDto> GetQuestionList()

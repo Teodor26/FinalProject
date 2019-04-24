@@ -81,6 +81,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateUser(User user)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
 
         private void ListInitialization()
         {
