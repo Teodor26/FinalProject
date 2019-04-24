@@ -1,4 +1,6 @@
 ﻿using FinalProject.BusinessLogic.Dto;
+using FinalProject.BusinessLogic.Extensions;
+using FinalProject.DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,9 @@ namespace FinalProjectMVC.Services
     }
     public class GroupApiService : IGroupApiService
     {
+        private readonly GroupRepository groupRepository
+            = new GroupRepository();
+
         public async Task<List<GroupDto>> Getlist()
         {
             HttpClient client = new HttpClient();
@@ -26,7 +31,9 @@ namespace FinalProjectMVC.Services
             client.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            List<GroupDto> groupList = new List<GroupDto>();
+            var list = groupRepository.GetListOfGroup();
+
+            List<GroupDto> groupList = list.Select(x => x.ToGroupDto()).ToList();
 
             var response = await client.GetAsync("groupList");
 
