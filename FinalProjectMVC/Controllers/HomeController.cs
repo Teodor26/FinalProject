@@ -11,33 +11,10 @@ namespace FinalProjectWeb.Controllers
 
     public class HomeController : Controller
     {
-        #region Register  
-
-        //  
-        // GET: /Home/Register  
-        [AllowAnonymous]
-        public ActionResult Register()
+       
+       public ActionResult Index()
         {
             return View();
         }
-
-        //  
-        // POST: /Home/Register  
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                // Info.  
-                Console.WriteLine(model.Email);
-            }
-
-            // If we got this far, something failed, redisplay form  
-            return View(model);
-        }
-
-        #endregion
     }
 }
