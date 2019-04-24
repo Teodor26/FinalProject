@@ -32,6 +32,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateQuestion(Question question)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(question).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
         public Question GetQuestionById(int Id)
         {
             using (var context = new FinalProjectDBEntities1())

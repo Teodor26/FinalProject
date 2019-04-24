@@ -31,6 +31,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateAdmin(Admin admin)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(admin).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
         public Admin GetAdminById(int Id)
         {
             using (var context = new FinalProjectDBEntities1())

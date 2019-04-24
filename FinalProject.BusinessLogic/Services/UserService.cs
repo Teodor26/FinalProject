@@ -17,6 +17,7 @@ namespace FinalProject.BusinessLogic.Services
         UserDto GetById(int Id);
         void Delete(int? Id);
         void Add(User user, string role);
+        void Update(User user);
 
     }
     public class UserService : IUserService
@@ -39,6 +40,11 @@ namespace FinalProject.BusinessLogic.Services
             var user = userRepository.GetUserById(Id);
 
             return user.ToUserDto();
+        }
+
+        public void Update(User user)
+        {
+            userRepository.UpdateUser(user);
         }
 
         public List<UserDto> GetUserList()

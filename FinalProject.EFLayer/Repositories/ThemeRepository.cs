@@ -31,6 +31,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateTheme(Theme theme)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(theme).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
         public Theme GetThemeById(int Id)
         {
             using (var context = new FinalProjectDBEntities1())

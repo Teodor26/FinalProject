@@ -65,6 +65,13 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateCourse(Course course)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(course).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
 
         private void ListInitialization()
         {

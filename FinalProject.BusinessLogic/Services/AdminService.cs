@@ -18,6 +18,8 @@ namespace FinalProject.BusinessLogic.Services
 
         void Add(Admin admin);
 
+        void Update(Admin admin);
+
         void Delete(int? Id);
     }
 
@@ -41,6 +43,11 @@ namespace FinalProject.BusinessLogic.Services
             var admin = _adminRepository.GetAdminById(Id);
 
             return admin.ToAdminDto();
+        }
+
+        public void Update(Admin admin)
+        {
+            _adminRepository.UpdateAdmin(admin);
         }
 
         public List<AdminDto> GetAdminList()

@@ -15,6 +15,8 @@ namespace FinalProject.BusinessLogic.Services
 
         void Add(Theme theme);
 
+        void Update(Theme theme);
+
         void Delete(int? Id);
     }
     public class ThemeService : IThemeService
@@ -37,6 +39,11 @@ namespace FinalProject.BusinessLogic.Services
         public void Delete(int? Id)
         {
             _themeRepository.DeleteTheme(Id);
+        }
+
+        public void Update(Theme theme)
+        {
+            _themeRepository.UpdateTheme(theme);
         }
 
         public ThemeDto GetThemeById(int Id)

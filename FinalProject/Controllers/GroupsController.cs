@@ -21,14 +21,35 @@ namespace FinalProject.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = _groupService.GetGroupList();
-            return Ok(courses);
+            var groups = _groupService.GetGroupList();
+            return Ok(groups);
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var group = _groupService.GetGroupById(Id);
+            return Ok(group);
         }
 
         [HttpPost]
         public IHttpActionResult Add([FromBody] Group group, string Course)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             _groupService.Add(group, Course);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody]  Group group)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _groupService.Update(group);
+
             return Ok();
         }
 

@@ -20,14 +20,35 @@ namespace FinalProject.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = _themeService.GetThemeList();
-            return Ok(courses);
+            var themes = _themeService.GetThemeList();
+            return Ok(themes);
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var theme = _themeService.GetThemeById(Id);
+            return Ok(theme);
         }
 
         [HttpPost]
         public IHttpActionResult Add([FromBody] Theme theme)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             _themeService.Add(theme);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Theme theme)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _themeService.Update(theme);
+
             return Ok();
         }
 

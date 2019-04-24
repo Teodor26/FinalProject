@@ -16,14 +16,35 @@ namespace FinalProject.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = testService.GetTestList();
+            var tests = testService.GetTestList();
             return Ok();
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var test = testService.GetTestById(Id);
+            return Ok(test);
         }
 
         [HttpPost]
         public IHttpActionResult Add([FromBody] Test test)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             testService.Add(test);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Test test)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            testService.Update(test);
+
             return Ok();
         }
 

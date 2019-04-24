@@ -40,6 +40,14 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
+        public void UpdateTeacher(Teacher teacher)
+        {
+            using (var context = new FinalProjectDBEntities1())
+            {
+                context.Entry(teacher).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
         public Teacher GetTeacheryId(int Id)
         {
             using (var context = new FinalProjectDBEntities1())

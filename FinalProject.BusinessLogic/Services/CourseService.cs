@@ -13,6 +13,7 @@ namespace FinalProject.BusinessLogic.Services
 
         CourseDto GetById(int Id);
 
+        void Update(Course course);
 
         void Delete(int? Id);
 
@@ -41,6 +42,10 @@ namespace FinalProject.BusinessLogic.Services
 
             return course.ToCourseDto();
 
+        }
+        public void Update(Course course)
+        {
+            courseRepository.UpdateCourse(course);
         }
 
         public List<CourseDto> GetCourseList()

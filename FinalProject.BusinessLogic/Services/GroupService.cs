@@ -19,6 +19,8 @@ namespace FinalProject.BusinessLogic.Services
 
         void Add(Group group, string course);
 
+        void Update(Group group);
+
         void Delete(int? Id);
     }
     public class GroupService : IGroupService
@@ -41,6 +43,11 @@ namespace FinalProject.BusinessLogic.Services
             var group = groupRepository.GetGroupById(Id);
 
             return group.ToGroupDto();
+        }
+
+        public void Update(Group group)
+        {
+            groupRepository.UpdateGroup(group);
         }
 
         public List<GroupDto> GetGroupList()

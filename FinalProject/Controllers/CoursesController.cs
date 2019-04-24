@@ -24,10 +24,31 @@ namespace FinalProject.Controllers
             return Ok(courses);
         }
 
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var course = _courseService.GetById(Id);
+            return Ok(course);
+        }
+
         [HttpPost]
         public IHttpActionResult Add([FromBody] Course course)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             _courseService.Add(course);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Course course)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _courseService.Update(course);
+
             return Ok();
         }
 

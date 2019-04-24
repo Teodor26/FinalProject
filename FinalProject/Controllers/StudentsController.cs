@@ -21,14 +21,35 @@ namespace FinalProject.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = studentService.GetStudents();
+            var students = studentService.GetStudents();
             return Ok();
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var student = studentService.GetStudentById(Id);
+            return Ok(student);
         }
 
         [HttpPost]
         public IHttpActionResult Add([FromBody] Student student)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             studentService.Add(student);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Student student)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            studentService.Update(student);
+
             return Ok();
         }
 

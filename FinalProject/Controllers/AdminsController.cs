@@ -24,10 +24,31 @@ namespace FinalProject.Controllers
             return Ok(admin);
         }
 
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var admin = _adminService.GetAdminById(Id);
+            return Ok(admin);
+        }
+
         [HttpPost]
         public IHttpActionResult Add([FromBody] Admin admin)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             _adminService.Add(admin);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Admin admin)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _adminService.Update(admin);
+
             return Ok();
         }
 
