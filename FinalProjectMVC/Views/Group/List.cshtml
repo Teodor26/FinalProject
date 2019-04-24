@@ -1,24 +1,26 @@
 ﻿@model IEnumerable<FinalProject.Models.ViewModels.GroupViewModel>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Группы";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <link href="~/Content/external.css" rel="stylesheet">
 </head>
 <body>
 
-    <table>
+    <table class="table_blur">
         <tr>
             <td>
                 <p>Имя</p>
 
             </td>
+            <td><p>Начало старта группы</p></td>
             <td><p>Действие</p></td>
         </tr>
 
@@ -40,6 +42,6 @@
     <br />
     <p>@Html.ActionLink("Вернуться назад", "Index", "Group")</p>
 
-    
-    </body>
+
+</body>
 </html>
