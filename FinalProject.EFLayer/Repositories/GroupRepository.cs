@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.DataLayer.Repositories
 {
+    
     public class GroupRepository
     {
 
@@ -40,6 +41,7 @@ namespace FinalProject.DataLayer.Repositories
         {
             using (var context = new FinalProjectDBEntities1())
             {
+               
 
                 List<int> list = (context.Courses.Join(context.Groups,
                     cor => cor.Name,
