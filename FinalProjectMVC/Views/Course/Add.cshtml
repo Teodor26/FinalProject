@@ -14,9 +14,11 @@
     {
         <p>Введите название курса</p>
         <p>@Html.Label("Название курса")</p>
+        <p>
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
         
-        @Html.TextBoxFor(m => m.Name)
-        @Html.ValidationMessageFor(m => m.Name)
 
 
         <input type="submit" value="Отправить" />
