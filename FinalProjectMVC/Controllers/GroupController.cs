@@ -45,8 +45,8 @@ namespace FinalProjectMVC.Controllers
 
             //if (ModelState.IsValid)
             //{
-                _groupApiService.Add(group,Course);
-                //groupService.Add(group, Course);
+               // _groupApiService.Add(group,Course);
+                groupService.Add(group, Course);
                 return View();
             //}
             //return View(group);

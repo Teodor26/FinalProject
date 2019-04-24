@@ -14,32 +14,14 @@ namespace FinalProjectMVC.Services
     public interface IGroupApiService
     {
         Task<List<GroupDto>> Getlist();
-
-        void Add(Group group, string Course);
-
-        void Delete(int? Id);
+        
 
     }
     public class GroupApiService : IGroupApiService
     {
         private readonly GroupRepository groupRepository
             = new GroupRepository();
-
-        public void Add(Group group, string Course)
-        {
-            HttpClient client = new HttpClient();
-
-            string apiEndpoint = Properties.Settings.Default.ApiEndpoint;
-
-            client.BaseAddress = new Uri("http://localhost:52470/api/Add");
-
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-             groupRepository.AddGroup(group, Course);           
-            
-        }
+        
 
         public void Delete(int? Id)
         {
