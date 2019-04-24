@@ -11,7 +11,8 @@ namespace FinalProject.EFLayer.DataModels
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,9 +24,14 @@ namespace FinalProject.EFLayer.DataModels
         }
     
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Необходимо Имя")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "Необходима Фамилия")]
         public string LastName { get; set; }
+        [Required(ErrorMessage = "Необходим Логин")]
         public string Login { get; set; }
+        [Required(ErrorMessage = "Необходим Пароль")]
         public string Password { get; set; }
         public int UserTypeId { get; set; }
         public Nullable<bool> IsDeleted { get; set; }

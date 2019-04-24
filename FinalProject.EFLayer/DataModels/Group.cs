@@ -11,7 +11,8 @@ namespace FinalProject.EFLayer.DataModels
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Group
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,8 @@ namespace FinalProject.EFLayer.DataModels
     
         public int Id { get; set; }
         public Nullable<int> CourseId { get; set; }
+
+        [Required(ErrorMessage = "Необходимо название")]
         public string Name { get; set; }
         public Nullable<System.DateTime> BeginigDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }

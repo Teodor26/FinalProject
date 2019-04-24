@@ -12,8 +12,8 @@
 <body>
     @using (Html.BeginForm("Add", "Group", FormMethod.Post))
     {
-        <p>Введите название курса</p>
-        <p>@Html.Label("Имя группы")</p>
+        <p>Введите название группы</p>
+        <p>@Html.Label("Название группы")</p>
 
         @Html.TextBoxFor(m => m.Name)
         @Html.ValidationMessageFor(m => m.Name)
