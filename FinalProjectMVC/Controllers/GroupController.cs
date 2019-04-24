@@ -19,6 +19,8 @@ namespace FinalProjectMVC.Controllers
 
         private readonly IGroupApiService _groupApiService =
             new GroupApiService();
+
+
         public ActionResult Index()
         {
             return View();
@@ -39,11 +41,12 @@ namespace FinalProjectMVC.Controllers
 
         [HttpPost]
         public ActionResult Add(Group group, string Course)
-        {                   
+        {
 
             //if (ModelState.IsValid)
             //{
-                groupService.Add(group, Course);
+                _groupApiService.Add(group,Course);
+                //groupService.Add(group, Course);
                 return View();
             //}
             //return View(group);
