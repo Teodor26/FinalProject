@@ -1,9 +1,11 @@
 ﻿using FinalProject.BusinessLogic.Services;
 using FinalProject.EFLayer.DataModels;
 using FinalProject.Models.ViewModels;
+using FinalProjectMVC.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,14 +15,19 @@ namespace FinalProjectMVC.Controllers
     {
         private readonly IGroupService groupService 
             = new GroupService();
-        
+
+
+        private readonly IGroupApiService _groupApiService =
+            new GroupApiService();
+
+
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult List()
+        public async Task<ActionResult> List()
         {
-            var course = groupService.GetGroupList();
+            var course = await _groupApiService.Getlist();
             var groupViewModel = course.Select(x => new GroupViewModel(x));
 
             return View(groupViewModel); ;
@@ -34,11 +41,12 @@ namespace FinalProjectMVC.Controllers
 
         [HttpPost]
         public ActionResult Add(Group group, string Course)
-        {                   
+        {
 
             //if (ModelState.IsValid)
             //{
-                groupService.Add(group, Course);
+                _groupApiService.Add(group,Course);
+                //groupService.Add(group, Course);
                 return View();
             //}
             //return View(group);

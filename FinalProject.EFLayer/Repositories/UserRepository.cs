@@ -36,17 +36,28 @@ namespace FinalProject.DataLayer.Repositories
                    type => role,
                    (us, type) => us.Id)).Distinct().ToList();
 
+
+                user.IsDeleted = false;
                 try
                 {
                     user.UserTypeId = list[0];
+
                 }
                 catch
                 {
                     user.UserTypeId = 1;
                 }
 
-                context.Users.Add(user);                             
-                context.SaveChanges();
+                List<User> query = context.Users
+                   .Where(x => x.FirstName == user.FirstName && x.LastName == user.LastName 
+                   && (x.IsDeleted == false || x.IsDeleted == null) )
+               .ToList();
+                if (query.Count == 0)
+                {
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                }
+                   
             }
         }
 
