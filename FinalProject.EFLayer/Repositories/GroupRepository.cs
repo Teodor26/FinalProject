@@ -2,12 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalProject.DataLayer.Repositories
 {
-    
+
     public class GroupRepository
     {
 
@@ -41,12 +39,12 @@ namespace FinalProject.DataLayer.Repositories
         {
             using (var context = new FinalProjectDBEntities1())
             {
-               
+
 
                 List<int> list = (context.Courses.Join(context.Groups,
                     cor => cor.Name,
                     grop => Course,
-                    (cor, grop) =>  cor.Id )).Distinct().ToList();
+                    (cor, grop) => cor.Id)).Distinct().ToList();
 
                 group.BeginigDate = DateTime.Now;
 
@@ -54,12 +52,12 @@ namespace FinalProject.DataLayer.Repositories
                 {
                     group.CourseId = list[0];
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     group.CourseId = 1;
                 }
 
-                List <Group> query = context.Groups
+                List<Group> query = context.Groups
                     .Where(x => x.Name == group.Name &&
                 (x.IsDeleted == false || x.IsDeleted == null))
                 .ToList();

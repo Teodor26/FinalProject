@@ -29,7 +29,8 @@
 
 
         <p>@Html.Label("Введите свою роль")</p>
-        @Html.DropDownList("role", new SelectList(new[] { "Student", "Teacher", "Administrator" }))
+        <p>@Html.DropDownList("role", new SelectList(new[] { "Student", "Teacher", "Administrator" }))</p>
+        
         <input type="submit" value="Отправить" />
     }
     <br />
